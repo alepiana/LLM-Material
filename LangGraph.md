@@ -1,4 +1,4 @@
-### LangGraph
+### LangGraph - Course Outline
 
 LangChain, a popular open source framework for building LLM applications, recently introduced LangGraph. This extension allows developers to create highly controllable agents.
 
@@ -27,7 +27,9 @@ Le sfide erano significative:
 
 **LangGraph** è nato come risposta diretta a queste sfide. Rappresenta un cambio di paradigma fondamentale: si passa da un **loop imperativo** scritto in Python a un **grafo di esecuzione dichiarativo e stateful**. Invece di dire all'agente *come* eseguire il loop, si definisce una mappa dei possibili stati e transizioni, e si lascia che un motore di esecuzione gestisca il flusso. 
 
-Per capire ancora meglio la differenza usiamo una metafora. **LangChain è una Catena di Montaggio** 🚂: le componenti (LLMs, Tools) sono le singole stazioni di lavoro lungo la linea, mentre LCEL è il nastro trasportatore che collega le stazioni in una sequenza fissa e predeterminata. La catena risulta efficiente per compiti lineari. Ma cosa succede se un bullone è avvitato male? Il pezzo continua ad andare avanti. Non può tornare indietro alla stazione precedente per una correzione. **LangGraph è un'Officina di Artigiani Esperti** 🛠️: i nodi sono gli artigiani specializzati, lo stato è il pezzo su cui tutti lavorano, contiene il prodotto e un foglio di lavoro con le specifiche e i risultati dei test, ed infine gli archi condizionali (edges) sono le decisioni del capofficina (il grafo stesso). Dopo che un artigiano ha finito, il capofficina guarda il pezzo e decide cosa fare successivamente. In questa officina, il processo non è rigido. Il team può collaborare, tornare sui propri passi e adattare il flusso di lavoro in tempo reale per produrre un risultato migliore e più complesso. LangGraph ti dà gli strumenti per costruire proprio questo tipo di "officina intelligente" per i tuoi agenti AI.
+Per capire ancora meglio la differenza usiamo una metafora. 
+**LangChain è una Catena di Montaggio** 🚂: le componenti (LLMs, Tools) sono le singole stazioni di lavoro lungo la linea, mentre LCEL è il nastro trasportatore che collega le stazioni in una sequenza fissa e predeterminata. La catena risulta efficiente per compiti lineari. Ma cosa succede se un bullone è avvitato male? Il pezzo continua ad andare avanti. Non può tornare indietro alla stazione precedente per una correzione. 
+**LangGraph è un'Officina di Artigiani Esperti** 🛠️: i nodi sono gli artigiani specializzati, lo stato è il pezzo su cui tutti lavorano, contiene il prodotto e un foglio di lavoro con le specifiche e i risultati dei test, ed infine gli archi condizionali (edges) sono le decisioni del capofficina (il grafo stesso). Dopo che un artigiano ha finito, il capofficina guarda il pezzo e decide cosa fare successivamente. In questa officina, il processo non è rigido. Il team può collaborare, tornare sui propri passi e adattare il flusso di lavoro in tempo reale per produrre un risultato migliore e più complesso. LangGraph ti dà gli strumenti per costruire proprio questo tipo di "officina intelligente" per i tuoi agenti AI.
 
 Questo corso ti accompagna in questo viaggio, dalla comprensione dei limiti del vecchio approccio alla padronanza delle infinite possibilità del nuovo.
 
