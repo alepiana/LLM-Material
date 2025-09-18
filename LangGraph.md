@@ -33,8 +33,6 @@ Per capire ancora meglio la differenza usiamo una metafora.
 
 **LangGraph è un'Officina di Artigiani Esperti** 🛠️: i nodi sono gli artigiani specializzati, lo stato è il pezzo su cui tutti lavorano, contiene il prodotto e un foglio di lavoro con le specifiche e i risultati dei test, ed infine gli archi condizionali (edges) sono le decisioni del capofficina (il grafo stesso). Dopo che un artigiano ha finito, il capofficina guarda il pezzo e decide cosa fare successivamente. In questa officina, il processo non è rigido. Il team può collaborare, tornare sui propri passi e adattare il flusso di lavoro in tempo reale per produrre un risultato migliore e più complesso. LangGraph ti dà gli strumenti per costruire proprio questo tipo di "officina intelligente" per i tuoi agenti AI.
 
-Questo corso ti accompagna in questo viaggio, dalla comprensione dei limiti del vecchio approccio alla padronanza delle infinite possibilità del nuovo.
-
 -----
 
 ## Parte 1: Le Fondamenta - Sezionare un Agente ReAct da Zero
