@@ -17,7 +17,7 @@ Develop an agent for essay writing, replicating the workflow of a researcher wor
 
 ## Introduzione: La Ricerca del Controllo e della Trasparenza negli Agenti AI
 
-L'avvento di framework come LangChain ha democratizzato lo sviluppo di applicazioni basate su LLM, permettendo di creare prototipi funzionanti in tempi record. Tuttavia, man mano che queste applicazioni si sono evolute da semplici catene di prompt a complessi agenti autonomi, sono emersi dei limiti strutturali. Le prime architetture di agenti, basate su un loop imperativo (come il classico `AgentExecutor` di LangChain), sebbene potenti, operavano spesso come "scatole nere".
+L'avvento di framework come LangChain ha democratizzato lo sviluppo di applicazioni basate su LLM, permettendo di creare prototipi funzionanti in tempi record. Tuttavia, man mano che queste applicazioni si sono evolute da semplici catene di prompt a complessi agenti autonomi, sono emersi dei limiti strutturali. Le prime architetture di agenti, basate su un loop imperativo (come il classico `AgentExecutor` di LangChain), sebbene potenti, operavano spesso come "scatole nere". LangChain, con la sua LangChain Expression Language (LCEL), è eccezionale per costruire "catene" di operazioni. Queste catene sono potenti, ma per loro natura sono grafi aciclici diretti (DAG). Questo significa che il flusso di dati va sempre in una sola direzione, dall'inizio alla fine, senza mai tornare indietro, e risulta essere un limite quando si vogliono costruire sistemi più intelligenti e autonomi, come gli agenti.
 
 Le sfide erano significative:
 
@@ -25,13 +25,17 @@ Le sfide erano significative:
   * **Mancanza di Controllo:** Intervenire a metà di un'esecuzione, correggere una decisione sbagliata o guidare l'agente era quasi impossibile senza interrompere e riavviare tutto.
   * **Difficoltà di Debug:** Capire *perché* un agente si fosse bloccato in un loop o avesse preso una decisione illogica richiedeva un'analisi complessa di lunghi e intricati log di testo.
 
-**LangGraph** è nato come risposta diretta a queste sfide. Rappresenta un cambio di paradigma fondamentale: si passa da un **loop imperativo** scritto in Python a un **grafo di esecuzione dichiarativo e stateful**. Invece di dire all'agente *come* eseguire il loop, si definisce una mappa dei possibili stati e transizioni, e si lascia che un motore di esecuzione gestisca il flusso. Questo corso ti accompagna in questo viaggio, dalla comprensione dei limiti del vecchio approccio alla padronanza delle infinite possibilità del nuovo.
+**LangGraph** è nato come risposta diretta a queste sfide. Rappresenta un cambio di paradigma fondamentale: si passa da un **loop imperativo** scritto in Python a un **grafo di esecuzione dichiarativo e stateful**. Invece di dire all'agente *come* eseguire il loop, si definisce una mappa dei possibili stati e transizioni, e si lascia che un motore di esecuzione gestisca il flusso. 
+
+Per capire ancora meglio la differenza usiamo una metafora. **LangChain è una Catena di Montaggio** 🚂: le componenti (LLMs, Tools) sono le singole stazioni di lavoro lungo la linea, mentre LCEL è il nastro trasportatore che collega le stazioni in una sequenza fissa e predeterminata. La catena risulta efficiente per compiti lineari. Ma cosa succede se un bullone è avvitato male? Il pezzo continua ad andare avanti. Non può tornare indietro alla stazione precedente per una correzione. **LangGraph è un'Officina di Artigiani Esperti** 🛠️: i nodi sono gli artigiani specializzati, lo stato è il pezzo su cui tutti lavorano, contiene il prodotto e un foglio di lavoro con le specifiche e i risultati dei test, ed infine gli archi condizionali (edges) sono le decisioni del capofficina (il grafo stesso). Dopo che un artigiano ha finito, il capofficina guarda il pezzo e decide cosa fare successivamente. In questa officina, il processo non è rigido. Il team può collaborare, tornare sui propri passi e adattare il flusso di lavoro in tempo reale per produrre un risultato migliore e più complesso. LangGraph ti dà gli strumenti per costruire proprio questo tipo di "officina intelligente" per i tuoi agenti AI.
+
+Questo corso ti accompagna in questo viaggio, dalla comprensione dei limiti del vecchio approccio alla padronanza delle infinite possibilità del nuovo.
 
 -----
 
 ## Parte 1: Le Fondamenta - Sezionare un Agente ReAct da Zero
 
-Prima di poter costruire un grattacielo, è necessario conoscere i mattoni. La costruzione di un agente **ReAct (Reason + Act)** da zero è un esercizio didattico cruciale perché demistifica la "magia" di un agente, rivelando la chiara divisione dei compiti tra l'intelligenza artificiale e il codice convenzionale.
+Prima di poter costruire un grattacielo, è necessario conoscere i mattoni. La costruzione di un agente **ReAct (Reason + Act)** da zero è un esercizio didattico cruciale perché rivela la chiara divisione dei compiti tra l'intelligenza artificiale e il codice convenzionale.
 
 ### Il Cervello e le Mani: Una Collaborazione Simbiotica
 
@@ -47,7 +51,7 @@ Prima di poter costruire un grattacielo, è necessario conoscere i mattoni. La c
 
 ### L'Anatomia del `agent_scratchpad`
 
-Il cuore del ReAct è questo "monologo interiore" dell'agente. Dopo un paio di cicli, potrebbe apparire così:
+Il cuore dell'agente ReAct è questo "monologo interiore" dell'agente. Dopo un paio di cicli, potrebbe apparire così:
 
 ```
 Thought: L'utente vuole sapere le ultime notizie sull'IA. Dovrei usare il mio strumento di ricerca web.
