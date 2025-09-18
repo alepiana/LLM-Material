@@ -75,7 +75,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
 
 ### I Componenti Fondamentali
 
-1.  **Lo Stato (State): La Memoria Centrale**
+1.  **Lo Stato (State): La Memoria Centrale**\
     Lo **stato** è il concetto più importante. È un oggetto Python che contiene *tutti* i dati di una sessione. È la singola fonte di verità. La sua definizione è flessibile e dipende    dall'applicazione.
 
       * **Definizione:** Si usa quasi sempre un `TypedDict` per avere type safety.
