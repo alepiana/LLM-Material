@@ -67,8 +67,7 @@ Action: TavilySearchResults
 Action Input: {"query": "Phoenix-1 AI model"}
 ```
 
-Costruire questo manualmente ti fa capire quanto sia meticoloso il processo e quanto sia facile che si rompa. Questo dolore è la motivazione perfetta per LangGraph.
-
+Costruire questo manualmente ti fa capire quanto sia meticoloso il processo e quanto sia facile che si rompa.
 -----
 
 ## Parte 2: Ricostruire con LangGraph - Il Potere del Grafo Stateful
