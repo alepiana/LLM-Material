@@ -8,12 +8,12 @@ Additionally, you will learn about agentic search, which returns multiple answer
 
 In detail:
 
-Build an agent from scratch, and understand the division of tasks between the LLM and the code around the LLM.
-Implement the agent you built using LangGraph.
-Learn how agentic search retrieves multiple answers in a predictable format, unlike traditional search engines that return links.
-Implement persistence in agents, enabling state management across multiple threads, conversation switching, and the ability to reload previous states.
-Incorporate human-in-the-loop into agent systems.
-Develop an agent for essay writing, replicating the workflow of a researcher working on this task.
+- Build an agent from scratch, and understand the division of tasks between the LLM and the code around the LLM.
+- Implement the agent you built using LangGraph.
+- Learn how agentic search retrieves multiple answers in a predictable format, unlike traditional search engines that return links.
+- Implement persistence in agents, enabling state management across multiple threads, conversation switching, and the ability to reload previous states.
+- Incorporate human-in-the-loop into agent systems.
+- Develop an agent for essay writing, replicating the workflow of a researcher working on this task.
 
 ## Introduzione: La Ricerca del Controllo e della Trasparenza negli Agenti AI
 
@@ -76,7 +76,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
 
 ### I Componenti Fondamentali
 
-1.  **Lo Stato (State): La Memoria Centrale**
+1.  **Lo Stato (State): La Memoria Centrale**\\
     Lo **stato** è il concetto più importante. È un oggetto Python che contiene *tutti* i dati di una sessione. È la singola fonte di verità. La sua definizione è flessibile e dipende dall'applicazione.
 
       * **Definizione:** Si usa quasi sempre un `TypedDict` per avere type safety.
