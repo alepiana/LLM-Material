@@ -101,7 +101,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
 
     L'uso di `Annotated[..., operator.add]` è un'istruzione per LangGraph: quando un nodo restituisce un valore per questo campo, non sostituire il valore esistente, ma **aggiungilo** (concatenando liste o stringhe).
 
-3.  **I Nodi (Nodes): Le Unità di Lavoro**
+2.  **I Nodi (Nodes): Le Unità di Lavoro**\
     I nodi sono le funzioni che compongono il grafo. Ricevono lo stato corrente e restituiscono un dizionario con gli aggiornamenti. La distinzione di colore che hai notato in LangSmith è una visualizzazione della loro funzione:
 
       * **Nodi di Ragionamento (Blu/Viola):** Contengono la logica che invoca un LLM. Qui risiedono i **prompt**.
@@ -125,7 +125,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
             return {"retrieved_docs": results}
         ```
 
-5.  **Gli Archi (Edges): Il Flusso Logico**
+3.  **Gli Archi (Edges): Il Flusso Logico**\
     Gli archi collegano i nodi. Gli **archi condizionali** sono il motore della logica dell'agente. Sono funzioni che ispezionano lo stato e decidono quale nodo eseguire dopo.
 
     ```python
