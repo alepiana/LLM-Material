@@ -67,7 +67,8 @@ Action: TavilySearchResults
 Action Input: {"query": "Phoenix-1 AI model"}
 ```
 
-Costruire questo manualmente ti fa capire quanto sia meticoloso il processo e quanto sia facile che si rompa.
+Costruire questo manualmente ti fa capire quanto sia meticoloso il processo e quanto sia facile che si rompa
+
 -----
 
 ## Parte 2: Ricostruire con LangGraph - Il Potere del Grafo Stateful
@@ -76,8 +77,8 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
 
 ### I Componenti Fondamentali
 
-1.  **Lo Stato (State): La Memoria Centrale**\\
-    Lo **stato** è il concetto più importante. È un oggetto Python che contiene *tutti* i dati di una sessione. È la singola fonte di verità. La sua definizione è flessibile e dipende dall'applicazione.
+1.  **Lo Stato (State): La Memoria Centrale**
+    Lo **stato** è il concetto più importante. È un oggetto Python che contiene *tutti* i dati di una sessione. È la singola fonte di verità. La sua definizione è flessibile e dipende    dall'applicazione.
 
       * **Definizione:** Si usa quasi sempre un `TypedDict` per avere type safety.
         ```python
@@ -102,7 +103,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
 
     L'uso di `Annotated[..., operator.add]` è un'istruzione per LangGraph: quando un nodo restituisce un valore per questo campo, non sostituire il valore esistente, ma **aggiungilo** (concatenando liste o stringhe).
 
-2.  **I Nodi (Nodes): Le Unità di Lavoro**
+3.  **I Nodi (Nodes): Le Unità di Lavoro**
     I nodi sono le funzioni che compongono il grafo. Ricevono lo stato corrente e restituiscono un dizionario con gli aggiornamenti. La distinzione di colore che hai notato in LangSmith è una visualizzazione della loro funzione:
 
       * **Nodi di Ragionamento (Blu/Viola):** Contengono la logica che invoca un LLM. Qui risiedono i **prompt**.
@@ -126,7 +127,7 @@ LangGraph prende la logica del loop ReAct e la mappa su una struttura a grafo. I
             return {"retrieved_docs": results}
         ```
 
-3.  **Gli Archi (Edges): Il Flusso Logico**
+5.  **Gli Archi (Edges): Il Flusso Logico**
     Gli archi collegano i nodi. Gli **archi condizionali** sono il motore della logica dell'agente. Sono funzioni che ispezionano lo stato e decidono quale nodo eseguire dopo.
 
     ```python
